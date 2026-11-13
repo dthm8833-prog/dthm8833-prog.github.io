@@ -1,0 +1,603 @@
+<title>Hà My Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Portfolio Truyền thông Thương hiệu và Doanh nghiệp của Dương Thị Hà My">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+/* Layout: left-aligned editorial column; hero photo cut in a tumbler silhouette; each case = facts column + photo mosaic, alternating sides */
+:root{
+  --bg:#F3F6F7;        /* ice glass */
+  --surface:#FFFFFF;
+  --ink:#0F1E28;       /* deep ink */
+  --muted:#566874;
+  --line:#D6DFE4;
+  --accent:#2343C4;    /* cobalt glass */
+  --accent-soft:#E3E8FA;
+  --scrim:rgba(8,14,20,.92);
+  --f-display:"Bricolage Grotesque","Be Vietnam Pro",system-ui,sans-serif;
+  --f-body:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --s-1:.8125rem; --s0:1rem; --s1:1.125rem; --s2:1.375rem; --s3:clamp(1.6rem,2.6vw,2.1rem); --s4:clamp(2.6rem,7vw,5.6rem);
+  --wrap:1180px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0C151B;--surface:#132029;--ink:#E6EDF1;--muted:#93A5B0;--line:#22333D;--accent:#91A7FF;--accent-soft:#1A2547;--scrim:rgba(3,6,9,.94);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0C151B;--surface:#132029;--ink:#E6EDF1;--muted:#93A5B0;--line:#22333D;--accent:#91A7FF;--accent-soft:#1A2547;--scrim:rgba(3,6,9,.94);color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:var(--s0);line-height:1.65;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+:root:not([data-lang="en"]) .l-en{display:none!important}
+:root[data-lang="en"] .l-vi{display:none!important}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+h1,h2,h3{font-family:var(--f-display);font-weight:700;line-height:1.08;letter-spacing:-.02em;text-wrap:balance;margin:0}
+p{margin:0}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+@media (min-width:720px){.wrap{padding-left:max(32px,env(safe-area-inset-left,0px));padding-right:max(32px,env(safe-area-inset-right,0px))}}
+.eyebrow{font-size:var(--s-1);font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.btn{display:inline-flex;align-items:center;gap:.5em;padding:.8em 1.3em;border-radius:999px;font-weight:600;font-size:.95rem;text-decoration:none;border:1.5px solid var(--ink);transition:background .2s,color .2s}
+.btn-solid{background:var(--ink);color:var(--bg)}
+.btn-solid:hover{background:var(--accent);border-color:var(--accent)}
+.btn-ghost:hover{background:var(--ink);color:var(--bg)}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:1.5rem;padding-block:.8rem}
+.brand{font-family:var(--f-display);font-weight:800;font-size:1.15rem;text-decoration:none;letter-spacing:-.01em}
+.nav-links{display:flex;gap:1.4rem;margin-left:auto;font-size:.92rem}
+.nav-links a{text-decoration:none;color:var(--muted)}
+.nav-links a:hover{color:var(--ink)}
+.lang{display:flex;border:1.5px solid var(--line);border-radius:999px;padding:2px}
+.lang button{font:inherit;font-size:.8rem;font-weight:600;border:0;background:none;color:var(--muted);padding:.3em .75em;border-radius:999px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+@media (max-width:760px){.nav-links{display:none}.lang{margin-left:auto}}
+
+/* hero */
+.hero{padding-block:clamp(2.5rem,6vw,5rem) clamp(3rem,7vw,6rem)}
+.hero-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.hero-text{min-width:0;display:grid;gap:1.4rem}
+.hero h1{font-size:var(--s4);font-weight:800;letter-spacing:-.035em;line-height:.98}
+.hero h1 .thin{display:block;font-weight:500;color:var(--muted)}
+.lede{font-size:var(--s1);max-width:36em;color:var(--ink)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:.4rem}
+.tumbler{position:relative;margin:0}
+.tumbler .glass{clip-path:polygon(0 0,100% 0,91% 100%,9% 100%);aspect-ratio:4/5;overflow:hidden;background:var(--line)}
+.tumbler img{width:100%;height:100%;object-fit:cover;object-position:58% 50%;display:block}
+.tumbler::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.75),transparent);z-index:1;pointer-events:none}
+.tumbler figcaption{margin-top:.7rem;text-align:center;font-size:var(--s-1);color:var(--muted)}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:clamp(2.5rem,5vw,4rem);border-top:1px solid var(--line)}
+.fact{padding:1.1rem 1.2rem 0 0;min-width:0}
+.fact + .fact{padding-left:1.2rem;border-left:1px solid var(--line)}
+.fact b{display:block;font-family:var(--f-display);font-size:var(--s2);font-weight:700;letter-spacing:-.01em;line-height:1.2}
+.fact > span{font-size:.88rem;color:var(--muted)}
+@media (max-width:860px){.hero-grid{grid-template-columns:1fr}.tumbler{max-width:420px}.facts{grid-template-columns:1fr 1fr;row-gap:1.2rem}.fact:nth-child(3){padding-left:0;border-left:0}}
+
+/* sections */
+section{scroll-margin-top:70px}
+.sec{padding-block:clamp(3.5rem,8vw,6.5rem);border-top:1px solid var(--line)}
+.sec-head{display:grid;gap:.9rem;max-width:44rem;margin-bottom:clamp(2rem,5vw,3.5rem)}
+.sec-head h2{font-size:var(--s3)}
+.sec-head p{color:var(--muted)}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:start}
+.about-grid > *{min-width:0}
+@media (max-width:760px){.about-grid{grid-template-columns:1fr}}
+.about-text{display:grid;gap:1.1rem;max-width:36em}
+.about-text p:first-child{font-size:var(--s1)}
+.edu{display:grid;gap:.6rem;margin-top:.6rem;padding-top:1.2rem;border-top:1px solid var(--line)}
+.edu div{display:flex;justify-content:space-between;gap:1rem;font-size:.95rem}
+.edu small{color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.honor{margin:0}
+.honor img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:6px;display:block;cursor:zoom-in}
+.honor figcaption{font-size:var(--s-1);color:var(--muted);margin-top:.6rem}
+
+/* project index */
+.index{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:0;border-top:1px solid var(--line);margin-bottom:clamp(3rem,6vw,5rem)}
+.index a{display:grid;gap:.3rem;padding:1rem 1rem 1rem 0;border-bottom:1px solid var(--line);text-decoration:none}
+.index a:hover h3{color:var(--accent)}
+.index h3{font-size:1.05rem;font-weight:700;letter-spacing:-.01em;transition:color .2s}
+.index a > span{font-size:.82rem;color:var(--muted)}
+
+/* case */
+.cases{display:grid;gap:clamp(4rem,9vw,7rem)}
+.case{display:grid;grid-template-columns:5fr 7fr;gap:clamp(1.8rem,4vw,3.5rem);align-items:start;scroll-margin-top:80px}
+.case.flip .case-text{order:2}
+.case-text{display:grid;gap:1.2rem;min-width:0}
+@media (min-width:900px){.case-text{position:sticky;top:calc(80px + env(safe-area-inset-top,0px))}}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem}
+.tag{font-size:.75rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:.25em .7em;border:1px solid var(--line);border-radius:4px;color:var(--muted);background:var(--surface)}
+.tag.yr{color:var(--accent);border-color:color-mix(in srgb,var(--accent) 35%,transparent);background:var(--accent-soft)}
+.case h3{font-size:var(--s3)}
+.case-lede{font-size:var(--s1)}
+.dl{display:grid;gap:1rem;margin:0}
+.dl > div{display:grid;grid-template-columns:7.5rem 1fr;gap:1rem;padding-top:1rem;border-top:1px solid var(--line)}
+.dl dt{font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding-top:.2rem}
+.dl dd{margin:0;min-width:0}
+.dl ul{margin:0;padding-left:1.1em;display:grid;gap:.35rem}
+.dl li::marker{color:var(--accent)}
+@media (max-width:899px){.case{grid-template-columns:1fr}.case.flip .case-text{order:0}}
+@media (max-width:480px){.dl > div{grid-template-columns:1fr;gap:.3rem}}
+
+.mosaic{display:grid;grid-auto-flow:dense;grid-template-columns:repeat(6,1fr);grid-auto-rows:clamp(90px,11vw,140px);gap:8px;min-width:0}
+.mosaic figure{margin:0;position:relative;overflow:hidden;border-radius:4px;background:var(--line);grid-column:span 2;grid-row:span 2}
+.mosaic figure.w4{grid-column:span 4}
+.mosaic figure.w3{grid-column:span 3}
+.mosaic figure.w6{grid-column:span 6}
+.mosaic figure.h3{grid-row:span 3}
+.mosaic figure.h4{grid-row:span 4}
+.mosaic img,.mosaic video{width:100%;height:100%;object-fit:cover;display:block}
+.mosaic img{cursor:zoom-in;transition:transform .5s ease}
+.mosaic figure:hover img{transform:scale(1.03)}
+.mosaic figcaption{position:absolute;left:0;right:0;bottom:0;padding:1.6rem .7rem .55rem;font-size:.78rem;line-height:1.35;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.62));pointer-events:none}
+@media (max-width:600px){.mosaic{grid-template-columns:repeat(2,1fr);grid-auto-rows:120px}.mosaic figure,.mosaic figure.w3,.mosaic figure.w4{grid-column:span 1}.mosaic figure.w4,.mosaic figure.w6{grid-column:span 2}.mosaic figure.h3,.mosaic figure.h4{grid-row:span 2}}
+
+/* process */
+.process{padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:0;counter-reset:st;margin-bottom:clamp(3rem,6vw,4.5rem);border-top:1.5px solid var(--ink)}
+.process li{list-style:none;padding:1rem 1rem 0 0;counter-increment:st;min-width:0}
+.process li::before{content:counter(st,decimal-leading-zero);display:block;font-family:var(--f-display);font-weight:700;color:var(--accent);margin-bottom:.35rem}
+.process b{display:block;font-size:1rem;line-height:1.3}
+.process li > span{font-size:.88rem;color:var(--muted)}
+@media (max-width:760px){.process{grid-template-columns:1fr 1fr;row-gap:1rem}}
+.ventures{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:16px}
+.venture{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:1.4rem;display:grid;gap:.75rem;align-content:start;min-width:0}
+.venture h3{font-size:1.3rem}
+.venture .kind{font-size:.8rem;color:var(--muted)}
+.venture ul{margin:0;padding-left:1.1em;display:grid;gap:.35rem;font-size:.95rem}
+.venture li::marker{color:var(--accent)}
+.venture .learn{font-size:.9rem;padding-top:.75rem;border-top:1px dashed var(--line);color:var(--muted)}
+.venture .learn b{color:var(--ink);font-weight:600}
+
+/* timeline + skills */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4.5rem)}
+.two > *{min-width:0}
+@media (max-width:860px){.two{grid-template-columns:1fr}}
+.tl{display:grid;gap:0;margin:0;padding:0}
+.tl li{list-style:none;display:grid;grid-template-columns:6.5rem 1fr;gap:1rem;padding-block:1.1rem;border-top:1px solid var(--line)}
+.tl time{font-variant-numeric:tabular-nums;font-size:.88rem;color:var(--muted);padding-top:.15rem}
+.tl b{display:block;font-size:1.02rem}
+.tl i{font-style:normal;color:var(--accent);font-size:.9rem;font-weight:500}
+.tl p{font-size:.93rem;color:var(--muted);margin-top:.3rem}
+.sk{display:grid;gap:0}
+.sk > div{padding-block:1.1rem;border-top:1px solid var(--line);display:grid;gap:.55rem}
+.sk h3{font-family:var(--f-body);font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:.45rem}
+.chips > span{font-size:.9rem;padding:.3em .8em;border-radius:999px;background:var(--surface);border:1px solid var(--line)}
+.list-h{font-size:1.35rem;margin-bottom:.4rem}
+
+/* contact */
+.contact{background:var(--ink);color:var(--bg)}
+.contact .wrap{padding-block:clamp(3.5rem,8vw,6rem);display:grid;gap:2rem}
+.contact h2{font-size:var(--s4);font-weight:800;letter-spacing:-.035em}
+.contact p{max-width:34em;opacity:.8}
+.cards{display:flex;flex-wrap:wrap;gap:12px}
+.cc{display:flex;align-items:center;gap:.9rem;padding:.8rem .9rem .8rem 1.1rem;border:1px solid color-mix(in srgb,var(--bg) 25%,transparent);border-radius:8px;min-width:0}
+.cc small{display:block;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;opacity:.65}
+.cc div > span{font-weight:600;user-select:all;overflow-wrap:anywhere}
+.cc button{font:inherit;font-size:.8rem;font-weight:600;border:0;border-radius:999px;padding:.4em .9em;background:var(--bg);color:var(--ink);cursor:pointer;flex-shrink:0}
+.contact .btn{border-color:var(--bg);color:var(--bg);justify-self:start}
+.contact .btn:hover{background:var(--bg);color:var(--ink)}
+footer.foot{background:var(--ink);color:var(--bg);opacity:1}
+footer.foot .wrap{padding-block:1.2rem;border-top:1px solid color-mix(in srgb,var(--bg) 18%,transparent);font-size:.8rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+footer.foot span{opacity:.6}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:50;background:var(--scrim);display:grid;grid-template-rows:1fr auto;padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.lb[hidden]{display:none}
+.lb img{max-width:100%;max-height:100%;object-fit:contain;margin:auto;min-height:0}
+.lb-stage{display:grid;min-height:0}
+.lb-bar{display:flex;align-items:center;gap:1rem;color:#fff;padding-top:.8rem}
+.lb-cap{flex:1;font-size:.9rem;opacity:.85;min-width:0}
+.lb button{font:inherit;font-weight:600;font-size:.9rem;border:1px solid rgba(255,255,255,.35);background:transparent;color:#fff;border-radius:999px;padding:.45em 1em;cursor:pointer}
+.lb button:hover{background:rgba(255,255,255,.15)}
+</style>
+
+<nav class="nav" aria-label="Điều hướng">
+  <div class="wrap">
+    <a class="brand" href="#top">Hà My</a>
+    <div class="nav-links">
+      <a href="#gioi-thieu"><span class="l-vi">Giới thiệu</span><span class="l-en">About</span></a>
+      <a href="#du-an"><span class="l-vi">Dự án</span><span class="l-en">Work</span></a>
+      <a href="#ca-nhan"><span class="l-vi">Dự án cá nhân</span><span class="l-en">Independent</span></a>
+      <a href="#kinh-nghiem"><span class="l-vi">Kinh nghiệm</span><span class="l-en">Experience</span></a>
+      <a href="#lien-he"><span class="l-vi">Liên hệ</span><span class="l-en">Contact</span></a>
+    </div>
+    <div class="lang" role="group" aria-label="Ngôn ngữ / Language">
+      <button type="button" id="lang-vi" data-set-lang="vi" aria-pressed="true">VI</button>
+      <button type="button" id="lang-en" data-set-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <p class="eyebrow"><span class="l-vi">Truyền thông Doanh nghiệp &amp; Thương hiệu</span><span class="l-en">Corporate &amp; Brand Communications</span></p>
+        <h1><span class="thin">Dương Thị</span>Hà My</h1>
+        <p class="lede">
+          <span class="l-vi">Tôi kể câu chuyện doanh nghiệp qua sự kiện, báo chí, hoạt động cộng đồng và từng ấn phẩm, để thương hiệu được nhìn nhận đúng và được tin tưởng lâu dài.</span>
+          <span class="l-en">I tell a company's story through events, media relations, community programmes and every printed piece, so the brand is understood clearly and trusted for the long run.</span>
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-solid" href="#du-an"><span class="l-vi">Xem dự án</span><span class="l-en">See the work</span> ↓</a>
+          <a class="btn btn-ghost" href="assets/CV-Duong-Thi-Ha-My.pdf" target="_blank" rel="noopener"><span class="l-vi">Mở CV (PDF)</span><span class="l-en">Open CV (PDF)</span></a>
+        </div>
+      </div>
+      <figure class="tumbler">
+        <div class="glass"><img src="assets/img/hero-canton.jpg" alt="Hà My tại Canton Fair 2025, Quảng Châu" fetchpriority="high"></div>
+        <figcaption><span class="l-vi">Canton Fair 2025 · Quảng Châu, Trung Quốc</span><span class="l-en">Canton Fair 2025 · Guangzhou, China</span></figcaption>
+      </figure>
+    </div>
+    <div class="facts">
+      <div class="fact"><b><span class="l-vi">~4 năm</span><span class="l-en">~4 years</span></b><span><span class="l-vi">PR &amp; quản trị thương hiệu</span><span class="l-en">in PR &amp; brand management</span></span></div>
+      <div class="fact"><b><span class="l-vi">30 năm</span><span class="l-en">30 years</span></b><span><span class="l-vi">Chương trình kỷ niệm thành lập Việt Tiệp</span><span class="l-en">Viet Tiep's anniversary programme</span></span></div>
+      <div class="fact"><b><span class="l-vi">2 hội chợ</span><span class="l-en">2 trade fairs</span></b><span><span class="l-vi">Quốc tế, tại TP.HCM và Quảng Châu</span><span class="l-en">International, in HCMC and Guangzhou</span></span></div>
+      <div class="fact"><b>IELTS 6.5</b><span><span class="l-vi">Viết và biên tập song ngữ Anh–Việt</span><span class="l-en">Bilingual writing &amp; editing, EN–VI</span></span></div>
+    </div>
+  </div>
+</header>
+
+<section class="sec" id="gioi-thieu">
+  <div class="wrap about-grid">
+    <div class="about-text">
+      <p class="eyebrow"><span class="l-vi">Giới thiệu</span><span class="l-en">About</span></p>
+      <p>
+        <span class="l-vi">Tôi là Cử nhân Truyền thông Marketing và Thạc sĩ Quản trị Truyền thông tại Học viện Báo chí và Tuyên truyền. Gần 4 năm qua, tôi làm việc ở cả agency và doanh nghiệp sản xuất, từ viết kịch bản video đến phụ trách truyền thông thương hiệu cho một công ty thủy tinh 30 năm tuổi.</span>
+        <span class="l-en">I hold a BA in Marketing Communications and an MA in Communication Management from the Academy of Journalism and Communication. Over nearly four years I have worked agency-side and in-house, from writing video scripts to running brand communications for a 30-year-old Vietnamese glassware manufacturer.</span>
+      </p>
+      <p>
+        <span class="l-vi">Tại Thủy tinh Pha lê Việt Tiệp, tôi làm việc ở giao điểm giữa thương hiệu và uy tín doanh nghiệp: nội dung song ngữ cho kênh nội bộ và đối ngoại, sự kiện và hội chợ, hồ sơ giải thưởng, hoạt động CSR, giám sát Brand Guideline và nghiệm thu ấn phẩm với nhà cung cấp.</span>
+        <span class="l-en">At Viet Tiep Glass &amp; Crystal I worked where brand meets corporate reputation: bilingual content for internal and external channels, events and trade fairs, award submissions, CSR programmes, brand guideline compliance and print sign-off with suppliers.</span>
+      </p>
+      <p>
+        <span class="l-vi">Mục tiêu tiếp theo của tôi là vị trí Truyền thông Tập đoàn, nơi tôi có thể bảo vệ và nâng tầm vị thế thương hiệu doanh nghiệp một cách bền vững.</span>
+        <span class="l-en">My next goal is a Corporate Communications role, where I can protect and build a company's reputation over the long term.</span>
+      </p>
+      <div class="edu">
+        <div><span><span class="l-vi">Thạc sĩ Quản trị Truyền thông</span><span class="l-en">MA, Communication Management</span></span><small>2024–2026</small></div>
+        <div><span><span class="l-vi">Cử nhân Truyền thông Marketing</span><span class="l-en">BA, Marketing Communications</span></span><small>2019–2023</small></div>
+        <div><span><span class="l-vi">Học viện Báo chí và Tuyên truyền, Hà Nội</span><span class="l-en">Academy of Journalism and Communication, Hanoi</span></span></div>
+      </div>
+    </div>
+    <figure class="honor">
+      <img src="assets/img/honor.jpg" alt="Hà My nhận vinh danh Nhân viên xuất sắc" data-lb>
+      <figcaption><span class="l-vi">Vinh danh Nhân viên xuất sắc tại Thủy tinh Pha lê Việt Tiệp, tháng 01/2026</span><span class="l-en">Recognised as Outstanding Employee at Viet Tiep Glass &amp; Crystal, January 2026</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="sec" id="du-an">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow"><span class="l-vi">Dự án tiêu biểu · 2024–2026</span><span class="l-en">Selected work · 2024–2026</span></p>
+      <h2><span class="l-vi">Thủy tinh Pha lê Việt Tiệp &amp; Lotus Glass</span><span class="l-en">Viet Tiep Glass &amp; Crystal and Lotus Glass</span></h2>
+      <p><span class="l-vi">Vai trò: Chuyên viên Truyền thông &amp; Thương hiệu. Các dự án dưới đây do phòng Marketing triển khai; mỗi case ghi rõ phần việc tôi trực tiếp đảm nhận.</span><span class="l-en">Role: Brand &amp; Communications Specialist. These projects were delivered by the marketing team; each case states the part I personally owned.</span></p>
+    </div>
+
+    <nav class="index" aria-label="Danh sách dự án">
+      <a href="#c-30nam"><h3><span class="l-vi">Kỷ niệm 30 năm thành lập</span><span class="l-en">30th anniversary programme</span></h3><span>IMC · Livestream · 2025</span></a>
+      <a href="#c-giaithuong"><h3><span class="l-vi">Giải thưởng thương hiệu</span><span class="l-en">Brand awards</span></h3><span>PR · <span class="l-vi">Uy tín doanh nghiệp</span><span class="l-en">Reputation</span> · 2025</span></a>
+      <a href="#c-csr"><h3><span class="l-vi">CSR tại Đắk Lắk</span><span class="l-en">CSR in Dak Lak</span></h3><span>CSR · <span class="l-vi">Cộng đồng</span><span class="l-en">Community</span> · 2025</span></a>
+      <a href="#c-hoicho"><h3><span class="l-vi">Hội chợ quốc tế</span><span class="l-en">International trade fairs</span></h3><span><span class="l-vi">Xúc tiến thương mại</span><span class="l-en">Trade promotion</span> · 2024–2025</span></a>
+      <a href="#c-do"><h3><span class="l-vi">Cuộc thi “Dô”</span><span class="l-en">The “Dô!” challenge</span></h3><span>Campaign · TikTok · 2024–2025</span></a>
+      <a href="#c-hinhanh"><h3><span class="l-vi">Hình ảnh, bao bì &amp; ấn phẩm</span><span class="l-en">Imagery, packaging &amp; print</span></h3><span>Brand identity · 2025</span></a>
+      <a href="#c-diemban"><h3><span class="l-vi">Săn lộc vàng &amp; điểm bán</span><span class="l-en">Golden Luck &amp; retail activation</span></h3><span>Trade marketing · 2024–2025</span></a>
+    </nav>
+
+    <div class="cases">
+
+      <!-- 30 năm -->
+      <article class="case" id="c-30nam">
+        <div class="case-text">
+          <div class="tags"><span class="tag yr">2025</span><span class="tag">IMC</span><span class="tag">Livestream</span><span class="tag"><span class="l-vi">Sự kiện</span><span class="l-en">Events</span></span></div>
+          <h3><span class="l-vi">30 năm Việt Tiệp: Hành trình kiến tạo giá trị bền vững</span><span class="l-en">Viet Tiep at 30: building lasting value</span></h3>
+          <p class="case-lede"><span class="l-vi">Chương trình tri ân “30 năm Gắn kết – Phát triển” dành cho nhà phân phối, đại lý và khách hàng, khép lại bằng 3 đợt livestream Vòng quay tri ân.</span><span class="l-en">A thank-you programme for distributors, dealers and customers, “30 Years of Partnership and Growth”, culminating in three live-streamed prize draws.</span></p>
+          <dl class="dl">
+            <div><dt><span class="l-vi">Bối cảnh</span><span class="l-en">Context</span></dt><dd><span class="l-vi">Cột mốc 30 năm là dịp tri ân hệ thống phân phối và khẳng định quy mô của một nhà sản xuất thủy tinh Việt Nam.</span><span class="l-en">The 30-year milestone was a chance to thank the distribution network and show the scale of a Vietnamese glass manufacturer.</span></dd></div>
+            <div><dt><span class="l-vi">Phần việc của tôi</span><span class="l-en">My part</span></dt><dd><ul>
+              <li class="l-vi">Phối hợp xây dựng thể lệ và văn bản chương trình gửi nhà phân phối, đại lý</li><li class="l-en">Co-wrote the programme rules and the official letter to distributors and dealers</li>
+              <li class="l-vi">Điều phối sản xuất 3 đợt livestream: kịch bản MC, sân khấu, hậu cần giải thưởng</li><li class="l-en">Coordinated three livestreams: MC scripts, stage, prize logistics</li>
+              <li class="l-vi">Quản lý thiết kế và in hộp quà kỷ niệm, thẻ cào, tem quét mã trên thùng hàng</li><li class="l-en">Managed design and printing of anniversary gift boxes, scratch cards and QR stickers on cartons</li>
+            </ul></dd></div>
+            <div><dt><span class="l-vi">Kết quả</span><span class="l-en">Outcome</span></dt><dd><span class="l-vi">3 đợt livestream diễn ra trọn vẹn; nhận diện 30 năm được dùng thống nhất từ sân khấu, thùng hàng đến điểm bán.</span><span class="l-en">All three livestreams ran in full, and the 30-year identity was applied consistently from the stage to cartons and shop fronts.</span></dd></div>
+            <div><dt><span class="l-vi">Bài học</span><span class="l-en">Takeaway</span></dt><dd><span class="l-vi">Một cột mốc lớn cần một câu chuyện xuyên suốt về con người và hành trình, chứ không chỉ là chuỗi hoạt động khuyến mãi.</span><span class="l-en">A milestone needs one continuous story about people and the journey, beyond a run of promotions.</span></dd></div>
+          </dl>
+        </div>
+        <div class="mosaic">
+          <figure class="w6 h3"><img src="assets/img/30y-stage.jpg" alt="Sân khấu livestream kỷ niệm 30 năm" loading="lazy" data-lb><figcaption><span class="l-vi">Sân khấu livestream Vòng quay tri ân</span><span class="l-en">The anniversary livestream stage</span></figcaption></figure>
+          <figure class="w3 h2"><img src="assets/img/30y-spin.jpg" alt="Màn hình quay số đợt 3" loading="lazy" data-lb><figcaption><span class="l-vi">Quay số đợt 3, 08/11/2025</span><span class="l-en">Draw no. 3, 8 Nov 2025</span></figcaption></figure>
+          <figure class="w3 h2"><img src="assets/img/30y-car.jpg" alt="Giải thưởng ô tô trên sân khấu" loading="lazy" data-lb><figcaption><span class="l-vi">Giải đặc biệt trên sân khấu</span><span class="l-en">Grand prizes on stage</span></figcaption></figure>
+          <figure class="w2 h3"><img src="assets/img/live-host.jpg" alt="MC dẫn livestream" loading="lazy" data-lb><figcaption><span class="l-vi">Phiên livestream cùng MC</span><span class="l-en">Live session with hosts</span></figcaption></figure>
+          <figure class="w2 h3"><img src="assets/img/30y-standee.jpg" alt="Standee chương trình tại kho" loading="lazy" data-lb><figcaption><span class="l-vi">Standee chương trình tại kho hàng</span><span class="l-en">Programme standee at the warehouse</span></figcaption></figure>
+          <figure class="w2 h3"><img src="assets/img/30y-stage-2.jpg" alt="Sân khấu Hành trình kiến tạo giá trị bền vững" loading="lazy" data-lb><figcaption><span class="l-vi">Key visual 30 năm</span><span class="l-en">30-year key visual</span></figcaption></figure>
+        </div>
+      </article>
+
+      <!-- Giải thưởng -->
+      <article class="case flip" id="c-giaithuong">
+        <div class="case-text">
+          <div class="tags"><span class="tag yr">2025</span><span class="tag">PR</span><span class="tag"><span class="l-vi">Uy tín doanh nghiệp</span><span class="l-en">Reputation</span></span></div>
+          <h3><span class="l-vi">Giải thưởng thương hiệu &amp; làm việc với ban tổ chức</span><span class="l-en">Brand awards and organiser relations</span></h3>
+          <p class="case-lede"><span class="l-vi">Việt Tiệp vào Top 10 “Sản phẩm – Dịch vụ Xanh – Bền vững 2025” của chương trình Tin &amp; Dùng.</span><span class="l-en">Viet Tiep was named among the Top 10 “Green &amp; Sustainable Products and Services 2025” in the Tin &amp; Dùng programme.</span></p>
+          <dl class="dl">
+            <div><dt><span class="l-vi">Phần việc của tôi</span><span class="l-en">My part</span></dt><dd><ul>
+              <li class="l-vi">Phụ trách trọn bộ hồ sơ Tin &amp; Dùng, từ chuẩn bị tài liệu đến nhận giải</li><li class="l-en">Owned the Tin &amp; Dùng submission end to end, from documentation to the award ceremony</li>
+              <li class="l-vi">Chuẩn bị hồ sơ cho giải Thương hiệu Quốc gia và APEA</li><li class="l-en">Prepared submissions for the National Brand award and APEA</li>
+              <li class="l-vi">Làm đầu mối với ban tổ chức và cơ quan báo chí; truyền thông thành tựu sau giải</li><li class="l-en">Acted as the contact for organisers and media, then communicated the win across channels</li>
+            </ul></dd></div>
+            <div><dt><span class="l-vi">Ý nghĩa</span><span class="l-en">Why it matters</span></dt><dd><span class="l-vi">Giải thưởng là bằng chứng độc lập về chất lượng, giúp thương hiệu sản xuất lâu năm có thêm lý do để khách hàng và đối tác tin tưởng.</span><span class="l-en">Awards give independent proof of quality, a reason for customers and partners to trust a long-standing manufacturer.</span></dd></div>
+          </dl>
+        </div>
+        <div class="mosaic">
+          <figure class="w6 h4"><img src="assets/img/award-tindung.jpg" alt="Lễ trao giải Top 10 Sản phẩm Dịch vụ Xanh Bền vững 2025" loading="lazy" data-lb><figcaption><span class="l-vi">Lễ vinh danh Top 10 Sản phẩm – Dịch vụ Xanh – Bền vững 2025</span><span class="l-en">Top 10 Green &amp; Sustainable Products and Services 2025 ceremony</span></figcaption></figure>
+        </div>
+      </article>
+
+      <!-- CSR -->
+      <article class="case" id="c-csr">
+        <div class="case-text">
+          <div class="tags"><span class="tag yr">2025</span><span class="tag">CSR</span><span class="tag"><span class="l-vi">Cộng đồng</span><span class="l-en">Community</span></span></div>
+          <h3><span class="l-vi">“Mang Tết ấm đến mọi nhà”: hỗ trợ vùng lũ Đắk Lắk</span><span class="l-en">“A Warm Tết for Every Home”: flood relief in Dak Lak</span></h3>
+          <p class="case-lede"><span class="l-vi">Học bổng, quà học tập cho học sinh và hỗ trợ trực tiếp các gia đình chịu thiệt hại sau thiên tai.</span><span class="l-en">Scholarships and school supplies for students, plus direct support for families hit by the floods.</span></p>
+          <dl class="dl">
+            <div><dt><span class="l-vi">Phần việc của tôi</span><span class="l-en">My part</span></dt><dd><ul>
+              <li class="l-vi">Tham gia xây dựng kế hoạch: đối tượng hỗ trợ, nội dung quà, lịch trình tại địa phương</li><li class="l-en">Helped build the plan: beneficiaries, gift contents, on-site schedule</li>
+              <li class="l-vi">Trực tiếp điều phối buổi trao học bổng tại trường và thăm hỏi các hộ gia đình</li><li class="l-en">Ran the scholarship ceremony at the school and the visits to affected families</li>
+              <li class="l-vi">Truyền thông hoạt động trên kênh nội bộ và đối ngoại</li><li class="l-en">Communicated the programme internally and externally</li>
+            </ul></dd></div>
+            <div><dt><span class="l-vi">Kết quả</span><span class="l-en">Outcome</span></dt><dd><span class="l-vi">Hình ảnh doanh nghiệp gắn bó với cộng đồng được củng cố, đồng thời tạo niềm tự hào cho đội ngũ nội bộ.</span><span class="l-en">Strengthened the company's image as a community partner and gave employees something to be proud of.</span></dd></div>
+          </dl>
+        </div>
+        <div class="mosaic">
+          <figure class="w4 h4"><img src="assets/img/csr-1.jpg" alt="Quà tặng học sinh tại trường" loading="lazy" data-lb><figcaption><span class="l-vi">Quà học tập chuẩn bị cho học sinh</span><span class="l-en">School gift packs ready for students</span></figcaption></figure>
+          <figure class="w2 h4"><img src="assets/img/csr-2.jpg" alt="Hà My điều phối buổi trao quà" loading="lazy" data-lb><figcaption><span class="l-vi">Điều phối buổi trao quà</span><span class="l-en">Hosting the handover</span></figcaption></figure>
+        </div>
+      </article>
+
+      <!-- Hội chợ -->
+      <article class="case flip" id="c-hoicho">
+        <div class="case-text">
+          <div class="tags"><span class="tag yr">2024–2025</span><span class="tag"><span class="l-vi">Xúc tiến thương mại</span><span class="l-en">Trade promotion</span></span><span class="tag"><span class="l-vi">Song ngữ</span><span class="l-en">Bilingual</span></span></div>
+          <h3><span class="l-vi">Lifestyle Vietnam 2024 &amp; Canton Fair 2025</span><span class="l-en">Lifestyle Vietnam 2024 and Canton Fair 2025</span></h3>
+          <p class="case-lede"><span class="l-vi">Đưa thương hiệu thủy tinh “Made in Vietnam” đến khách mua quốc tế tại TP.HCM và Quảng Châu.</span><span class="l-en">Taking a “Made in Vietnam” glassware brand to international buyers in Ho Chi Minh City and Guangzhou.</span></p>
+          <dl class="dl">
+            <div><dt><span class="l-vi">Phần việc của tôi</span><span class="l-en">My part</span></dt><dd><ul>
+              <li class="l-vi">Chuẩn bị ấn phẩm song ngữ: catalogue, hồ sơ công ty, nội dung gian hàng</li><li class="l-en">Prepared bilingual materials: catalogue, company profile, booth copy</li>
+              <li class="l-vi">Phối hợp dàn dựng và trưng bày sản phẩm tại gian hàng</li><li class="l-en">Coordinated booth build and product display</li>
+              <li class="l-vi">Trực tiếp tiếp đón và giới thiệu sản phẩm với khách mua nước ngoài</li><li class="l-en">Met and presented to overseas buyers on the stand</li>
+            </ul></dd></div>
+            <div><dt><span class="l-vi">Kết quả</span><span class="l-en">Outcome</span></dt><dd><span class="l-vi">Việc có mặt tại hội chợ xuất khẩu lớn nhất thế giới trở thành một thành tựu được dùng trong truyền thông về quy mô doanh nghiệp.</span><span class="l-en">Exhibiting at the world's largest export fair became a proof point in communications about the company's scale.</span></dd></div>
+          </dl>
+        </div>
+        <div class="mosaic">
+          <figure class="w4 h3"><img src="assets/img/fair-booth-1.jpg" alt="Gian hàng Lotus Glass và Việt Tiệp Crystal" loading="lazy" data-lb><figcaption><span class="l-vi">Gian hàng Lotus Glass – Việt Tiệp Crystal</span><span class="l-en">The Lotus Glass – Viet Tiep Crystal stand</span></figcaption></figure>
+          <figure class="w2 h3"><img src="assets/img/fair-booth-2.jpg" alt="Gian hàng trong ngày dàn dựng" loading="lazy" data-lb><figcaption><span class="l-vi">Ngày dàn dựng</span><span class="l-en">Build day</span></figcaption></figure>
+          <figure class="w3 h2"><img src="assets/img/fair-buyer.jpg" alt="Tiếp khách mua quốc tế" loading="lazy" data-lb><figcaption><span class="l-vi">Làm việc với khách mua quốc tế</span><span class="l-en">Meeting international buyers</span></figcaption></figure>
+          <figure class="w3 h2"><img src="assets/img/fair-shelf.jpg" alt="Kệ trưng bày Made in Vietnam" loading="lazy" data-lb><figcaption><span class="l-vi">Khu trưng bày “Made in Vietnam”</span><span class="l-en">The “Made in Vietnam” wall</span></figcaption></figure>
+        </div>
+      </article>
+
+      <!-- Dô -->
+      <article class="case" id="c-do">
+        <div class="case-text">
+          <div class="tags"><span class="tag yr">12/2024 – 02/2025</span><span class="tag">Campaign</span><span class="tag">TikTok</span><span class="tag">UGC</span></div>
+          <h3><span class="l-vi">Cuộc thi “Dô”: Dô vang, quẩy đậm, nhận quà chất</span><span class="l-en">The “Dô!” challenge: raise a glass, win big</span></h3>
+          <p class="case-lede"><span class="l-vi">Lấy cảm hứng từ văn hóa cụng ly, chiếc ly Lotus Glass trở thành biểu tượng của những khoảnh khắc sum vầy, gắn với thông điệp “Luôn bên bạn”.</span><span class="l-en">Built on the Vietnamese toasting ritual, the campaign made the Lotus Glass tumbler a symbol of getting together, tied to the line “Always by your side”.</span></p>
+          <dl class="dl">
+            <div><dt>Insight</dt><dd><span class="l-vi">Mùa tất niên và tiệc cuối năm, tiếng hô “Dô!” có mặt ở mọi bàn tiệc, và chiếc ly thủy tinh luôn ở trong tay người Việt.</span><span class="l-en">At year-end parties every table shouts “Dô!”, and there is always a glass in hand.</span></dd></div>
+            <div><dt><span class="l-vi">Cơ chế</span><span class="l-en">Mechanic</span></dt><dd><span class="l-vi">Nhóm bạn quay video hô “Dô” theo phong cách riêng, dùng cốc có đáy dập chữ Lotus Glass, đăng TikTok kèm #LotusGlassluonbenban. Điểm số kết hợp tương tác của khán giả và đánh giá của ban giám khảo.</span><span class="l-en">Friend groups film their own “Dô!”, using a tumbler with the Lotus Glass name embossed on its base, and post on TikTok with #LotusGlassluonbenban. Scores combine audience engagement and a jury mark.</span></dd></div>
+            <div><dt><span class="l-vi">Phần việc của tôi</span><span class="l-en">My part</span></dt><dd><span class="l-vi">Tham gia xây dựng thể lệ và nội dung truyền thông, vận hành cuộc thi trên fanpage và TikTok, xử lý phản hồi của thí sinh.</span><span class="l-en">Helped write the rules and campaign content, ran the contest on Facebook and TikTok, and handled entrant feedback.</span></dd></div>
+            <div><dt><span class="l-vi">Bài học</span><span class="l-en">Takeaway</span></dt><dd><span class="l-vi">Cuộc thi UGC cần thể lệ chặt chẽ và kịch bản xử lý khủng hoảng từ đầu, để phản ứng bình tĩnh, nhất quán khi có tranh cãi về kết quả.</span><span class="l-en">A UGC contest needs tight rules and a crisis plan from day one, so the brand can respond calmly and consistently when results are disputed.</span></dd></div>
+          </dl>
+        </div>
+        <div class="mosaic">
+          <figure class="w3 h4"><img src="assets/img/do-kv-1.jpg" alt="Key visual cuộc thi Dô" loading="lazy" data-lb><figcaption>Key visual</figcaption></figure>
+          <figure class="w3 h4"><img src="assets/img/do-kv-2.jpg" alt="Poster gia hạn cuộc thi Dô" loading="lazy" data-lb><figcaption><span class="l-vi">Poster gia hạn nhận bài</span><span class="l-en">Deadline-extension poster</span></figcaption></figure>
+        </div>
+      </article>
+
+      <!-- Hình ảnh -->
+      <article class="case flip" id="c-hinhanh">
+        <div class="case-text">
+          <div class="tags"><span class="tag yr">2025</span><span class="tag">Brand identity</span><span class="tag"><span class="l-vi">Ấn phẩm</span><span class="l-en">Print</span></span></div>
+          <h3><span class="l-vi">Làm mới hình ảnh, bao bì &amp; hệ thống ấn phẩm</span><span class="l-en">Refreshing imagery, packaging and print</span></h3>
+          <p class="case-lede"><span class="l-vi">Đưa Lotus Glass từ hình ảnh “hàng gia dụng giá tốt” đến một thương hiệu thủy tinh Việt có gu, thống nhất trên mọi điểm chạm.</span><span class="l-en">Moving Lotus Glass from “cheap kitchenware” towards a Vietnamese glass brand with taste, consistent at every touchpoint.</span></p>
+          <dl class="dl">
+            <div><dt><span class="l-vi">Phần việc của tôi</span><span class="l-en">My part</span></dt><dd><ul>
+              <li class="l-vi">Lên concept và điều phối chụp lại hình ảnh sản phẩm, cập nhật website</li><li class="l-en">Briefed and coordinated a new product shoot and the website image refresh</li>
+              <li class="l-vi">Triển khai bao bì mới, gồm bộ sưu tập Tết Bính Ngọ 2026</li><li class="l-en">Rolled out new packaging, including the Lunar New Year 2026 collection</li>
+              <li class="l-vi">Đàm phán với nhà in; trực tiếp nghiệm thu màu sắc, chất lượng tại xưởng</li><li class="l-en">Negotiated with printers and signed off colour and quality on press</li>
+              <li class="l-vi">Giám sát Brand Guideline trên POSM, biển hiệu đại lý, decal xe giao hàng</li><li class="l-en">Enforced the brand guideline on POSM, dealer signage and delivery-truck livery</li>
+              <li class="l-vi">Sản xuất video ngắn cho mạng xã hội</li><li class="l-en">Produced short-form social video</li>
+            </ul></dd></div>
+          </dl>
+        </div>
+        <div class="mosaic">
+          <figure class="w2 h4"><video src="assets/chill-lotus.mp4" poster="assets/img/chill-poster.jpg" muted autoplay loop playsinline aria-label="Video Chill cùng Lotus Glass"></video><figcaption><span class="l-vi">Video “Chill cùng Lotus Glass”</span><span class="l-en">“Chill with Lotus Glass” reel</span></figcaption></figure>
+          <figure class="w2 h4"><img src="assets/img/pack-new.jpg" alt="Bao bì mới Lotus Glass" loading="lazy" data-lb><figcaption><span class="l-vi">Bao bì mới, BST Tết Bính Ngọ</span><span class="l-en">New pack, Year of the Horse</span></figcaption></figure>
+          <figure class="w2 h4"><img src="assets/img/print-press.jpg" alt="Nghiệm thu in tại xưởng" loading="lazy" data-lb><figcaption><span class="l-vi">Nghiệm thu màu tại nhà in</span><span class="l-en">Press check at the printer</span></figcaption></figure>
+          <figure class="w2 h3"><img src="assets/img/shoot-set.jpg" alt="Buổi chụp concept sản phẩm" loading="lazy" data-lb><figcaption><span class="l-vi">Chụp concept sản phẩm</span><span class="l-en">Concept product shoot</span></figcaption></figure>
+          <figure class="w2 h3"><img src="assets/img/shoot-studio.jpg" alt="Set chụp tại công ty" loading="lazy" data-lb><figcaption><span class="l-vi">Set chụp in-house</span><span class="l-en">In-house set</span></figcaption></figure>
+          <figure class="w2 h3"><img src="assets/img/shoot-kol.jpg" alt="Quay nội dung tại studio" loading="lazy" data-lb><figcaption><span class="l-vi">Quay nội dung tại studio</span><span class="l-en">Studio content day</span></figcaption></figure>
+          <figure class="w6 h3"><img src="assets/img/print-truck.jpg" alt="Decal xe giao hàng Lotus Glass" loading="lazy" data-lb><figcaption><span class="l-vi">Decal xe giao hàng theo nhận diện mới</span><span class="l-en">Delivery truck in the new livery</span></figcaption></figure>
+        </div>
+      </article>
+
+      <!-- Điểm bán -->
+      <article class="case" id="c-diemban">
+        <div class="case-text">
+          <div class="tags"><span class="tag yr">2024–2025</span><span class="tag">Trade marketing</span><span class="tag">GT · Horeca</span></div>
+          <h3><span class="l-vi">Săn lộc vàng &amp; activation tại điểm bán</span><span class="l-en">Golden Luck and retail activation</span></h3>
+          <p class="case-lede"><span class="l-vi">Đưa thương hiệu ra khỏi màn hình, đến tận cửa hàng của đại lý và nhà của khách hàng.</span><span class="l-en">Taking the brand off the screen and into dealers' shops and customers' homes.</span></p>
+          <dl class="dl">
+            <div><dt><span class="l-vi">Phần việc của tôi</span><span class="l-en">My part</span></dt><dd><ul>
+              <li class="l-vi">Lên agenda và tổ chức trao giải vàng trực tiếp tại cửa hàng đại lý</li><li class="l-en">Planned and ran gold-prize handovers at dealer shops</li>
+              <li class="l-vi">Tổ chức sự kiện “Thức uống hot trend” tại điểm bán, tiếp cận khách hàng bếp tập thể, nhà hàng</li><li class="l-en">Ran a “Trending Drinks” in-store event aimed at canteens and restaurants</li>
+              <li class="l-vi">Trao quà tận nhà cho khách hàng trúng thưởng</li><li class="l-en">Delivered prizes to winners at home</li>
+            </ul></dd></div>
+            <div><dt><span class="l-vi">Kết quả</span><span class="l-en">Outcome</span></dt><dd><span class="l-vi">Tăng gắn kết với hệ thống đại lý và tạo nội dung thật, gần gũi cho kênh truyền thông.</span><span class="l-en">Closer ties with the dealer network and real, relatable content for the brand's channels.</span></dd></div>
+          </dl>
+        </div>
+        <div class="mosaic">
+          <figure class="w4 h3"><img src="assets/img/act-store.jpg" alt="Sự kiện Thức uống hot trend tại cửa hàng" loading="lazy" data-lb><figcaption><span class="l-vi">Sự kiện “Thức uống hot trend” tại điểm bán</span><span class="l-en">“Trending Drinks” in-store event</span></figcaption></figure>
+          <figure class="w2 h3"><img src="assets/img/gold-dealer-1.jpg" alt="Trao giải vàng tại đại lý" loading="lazy" data-lb><figcaption><span class="l-vi">Trao giải tại đại lý</span><span class="l-en">Prize handover at a dealer</span></figcaption></figure>
+          <figure class="w2 h3"><img src="assets/img/gold-dealer-2.jpg" alt="Trao giải vàng cho khách hàng" loading="lazy" data-lb><figcaption><span class="l-vi">Khách hàng nhận giải vàng</span><span class="l-en">A gold-prize winner</span></figcaption></figure>
+          <figure class="w2 h3"><img src="assets/img/act-gift-1.jpg" alt="Trao quà tận nhà khách hàng" loading="lazy" data-lb><figcaption><span class="l-vi">Trao quà tận nhà</span><span class="l-en">Home delivery of a prize</span></figcaption></figure>
+          <figure class="w2 h3"><img src="assets/img/act-display.jpg" alt="Trưng bày sản phẩm tại sự kiện" loading="lazy" data-lb><figcaption><span class="l-vi">Trưng bày sản phẩm</span><span class="l-en">Product display</span></figcaption></figure>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="ca-nhan">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow"><span class="l-vi">Dự án cá nhân · 2026 · Vai trò: Leader</span><span class="l-en">Independent projects · 2026 · Role: Lead</span></p>
+      <h2><span class="l-vi">Dẫn dắt chiến dịch cho 5 thương hiệu F&amp;B</span><span class="l-en">Leading campaigns for five F&amp;B brands</span></h2>
+      <p><span class="l-vi">Tôi tự quản lý trọn vòng đời của các chiến dịch nhỏ: làm việc với founder, lên kế hoạch, tìm nhà cung cấp, điều phối sản xuất nội dung và tự đánh giá kết quả sau mỗi tháng.</span><span class="l-en">I run small campaigns end to end: working with founders, planning, sourcing suppliers, directing content production and reviewing results every month.</span></p>
+    </div>
+    <ol class="process" aria-label="Quy trình phát triển ý tưởng">
+      <li><b><span class="l-vi">Mục đích</span><span class="l-en">Purpose</span></b><span><span class="l-vi">Hiểu đề bài và kỳ vọng của founder</span><span class="l-en">Pin down the brief and founder's goal</span></span></li>
+      <li><b><span class="l-vi">Chân dung khách hàng</span><span class="l-en">Audience</span></b><span><span class="l-vi">Ai sẽ nhận thông điệp, họ cần gì</span><span class="l-en">Who receives it and what they need</span></span></li>
+      <li><b>Moodboard</b><span><span class="l-vi">Diễn giải ý tưởng bằng hình ảnh</span><span class="l-en">Make the idea visible</span></span></li>
+      <li><b><span class="l-vi">Duyệt &amp; tính khả thi</span><span class="l-en">Approve &amp; test feasibility</span></b><span><span class="l-vi">Chốt một hướng trước khi thiết kế</span><span class="l-en">Commit to one route before design</span></span></li>
+      <li><b><span class="l-vi">Triển khai &amp; đánh giá</span><span class="l-en">Deliver &amp; review</span></b><span><span class="l-vi">Bám tiến độ, rút kinh nghiệm hàng tháng</span><span class="l-en">Track delivery, review monthly</span></span></li>
+    </ol>
+    <div class="ventures">
+      <article class="venture">
+        <div><h3>Thái Lab</h3><p class="kind"><span class="l-vi">Trà · Không gian thương hiệu</span><span class="l-en">Tea · Brand space</span></p></div>
+        <ul>
+          <li class="l-vi">Trưng bày sản phẩm, tranh treo tường và trang trí mùa Trung thu</li><li class="l-en">Product display, wall art and Mid-Autumn styling</li>
+          <li class="l-vi">Thiết kế cốc theo mùa và quà tặng thương hiệu</li><li class="l-en">Seasonal cup design and branded gifts</li>
+          <li class="l-vi">Kịch bản phim dự thi “Hương sắc xứ trà”: một giai điệu truyền qua hai thế hệ làm chè</li><li class="l-en">Script for the “Flavours of Tea Country” film entry: one melody passed between two generations of tea makers</li>
+          <li class="l-vi">Quản lý thực thi 2 kênh TikTok</li><li class="l-en">Managed two TikTok channels</li>
+        </ul>
+      </article>
+      <article class="venture">
+        <div><h3>Heritage</h3><p class="kind"><span class="l-vi">Cà phê · Nội dung TikTok</span><span class="l-en">Coffee · TikTok content</span></p></div>
+        <ul>
+          <li class="l-vi">Kế hoạch tháng với 4 tuyến nội dung: From farm to cup, Chuyện nghề, Humans of Heritage, Công thức pha chế</li><li class="l-en">Monthly plan across four content pillars: From farm to cup, Craft stories, Humans of Heritage, Recipes</li>
+          <li class="l-vi">Dùng storyboard để đặt quay, kiểm soát chất lượng đầu ra</li><li class="l-en">Storyboard-led shoots to control output quality</li>
+        </ul>
+      </article>
+      <article class="venture">
+        <div><h3>Phổ Coffee Roastery</h3><p class="kind"><span class="l-vi">Cà phê rang xay · Chiến dịch mùa vụ</span><span class="l-en">Roastery · Seasonal campaign</span></p></div>
+        <ul>
+          <li class="l-vi">Triển khai chiến dịch Trung thu trên mạng xã hội</li><li class="l-en">Ran the Mid-Autumn social campaign</li>
+        </ul>
+        <p class="learn"><b><span class="l-vi">Bài học:</span><span class="l-en">Lesson:</span></b> <span class="l-vi">khách của quán là người đi làm, thích yên tĩnh; hoạt động check-in theo mùa chưa khớp với họ. Nên ưu tiên hoàn thiện trải nghiệm tại quán.</span><span class="l-en">the café's regulars are professionals who value quiet, so a seasonal check-in push missed them. In-store experience should come first.</span></p>
+      </article>
+      <article class="venture">
+        <div><h3>Nhân Chín</h3><p class="kind"><span class="l-vi">Cà phê · IMC khai trương</span><span class="l-en">Coffee · Opening IMC</span></p></div>
+        <ul>
+          <li class="l-vi">Thực thi kế hoạch IMC khai trương: chuỗi bài fanpage, video TikTok sau khai trương</li><li class="l-en">Executed the opening IMC plan: Facebook series and post-launch TikTok videos</li>
+          <li class="l-vi">Sản xuất tranh treo tường về cà phê cho không gian quán</li><li class="l-en">Produced coffee-themed wall art for the space</li>
+        </ul>
+        <p class="learn"><b><span class="l-vi">Bài học:</span><span class="l-en">Lesson:</span></b> <span class="l-vi">hoàn thiện trưng bày điểm bán trước khi truyền thông, để thông điệp tại quán và trên mạng xã hội khớp nhau.</span><span class="l-en">finish the in-store display before going live, so the message matches online and on site.</span></p>
+      </article>
+      <article class="venture">
+        <div><h3>Mê Mẩn</h3><p class="kind"><span class="l-vi">F&amp;B · TikTok thương hiệu</span><span class="l-en">F&amp;B · Brand TikTok</span></p></div>
+        <ul>
+          <li class="l-vi">Xây dựng và triển khai kế hoạch TikTok thương hiệu</li><li class="l-en">Built and ran the brand TikTok plan</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="kinh-nghiem">
+  <div class="wrap two">
+    <div>
+      <p class="eyebrow"><span class="l-vi">Kinh nghiệm</span><span class="l-en">Experience</span></p>
+      <h2 class="list-h" style="margin-top:.6rem"><span class="l-vi">Hành trình làm nghề</span><span class="l-en">Career path</span></h2>
+      <ol class="tl">
+        <li><time>2026</time><div><b><span class="l-vi">Dự án cá nhân F&amp;B</span><span class="l-en">Independent F&amp;B projects</span></b><i>Leader</i><p><span class="l-vi">Dẫn dắt truyền thông cho 5 thương hiệu trà và cà phê.</span><span class="l-en">Led communications for five tea and coffee brands.</span></p></div></li>
+        <li><time>2024–2026</time><div><b><span class="l-vi">Công ty TNHH Thủy tinh Pha lê Việt Tiệp</span><span class="l-en">Viet Tiep Glass &amp; Crystal Co., Ltd.</span></b><i><span class="l-vi">Chuyên viên Truyền thông &amp; Thương hiệu</span><span class="l-en">Brand &amp; Communications Specialist</span></i><p><span class="l-vi">Nội dung song ngữ, sự kiện, hội chợ quốc tế, CSR, giải thưởng, quản lý nhà cung cấp in ấn, Brand Guideline.</span><span class="l-en">Bilingual content, events, international fairs, CSR, awards, print-supplier management, brand guideline.</span></p></div></li>
+        <li><time>2022–2023</time><div><b>Salmon Marketing Agency</b><i>Creative Content Creator</i><p><span class="l-vi">Viết kịch bản, đạo diễn và biên tập video quảng cáo, đạt 2,1 triệu lượt xem tự nhiên; phát triển kênh social và social listening cho khách hàng.</span><span class="l-en">Wrote, directed and edited ad videos that reached 2.1 million organic views; grew client social channels and ran social listening.</span></p></div></li>
+        <li><time>2021</time><div><b>À Ơi Việt Nam</b><i>Marketing Executive</i><p><span class="l-vi">Nghiên cứu thị trường, hỗ trợ kế hoạch ra mắt dòng quà tặng thực phẩm mới.</span><span class="l-en">Market research and launch planning for a new food-gift range.</span></p></div></li>
+      </ol>
+    </div>
+    <div>
+      <p class="eyebrow"><span class="l-vi">Năng lực</span><span class="l-en">Capabilities</span></p>
+      <h2 class="list-h" style="margin-top:.6rem"><span class="l-vi">Tôi mang đến</span><span class="l-en">What I bring</span></h2>
+      <div class="sk">
+        <div><h3><span class="l-vi">Truyền thông doanh nghiệp</span><span class="l-en">Corporate communications</span></h3><div class="chips">
+          <span><span class="l-vi">Truyền thông nội bộ &amp; đối ngoại</span><span class="l-en">Internal &amp; external comms</span></span><span><span class="l-vi">Quan hệ báo chí</span><span class="l-en">Media relations</span></span><span><span class="l-vi">Hồ sơ giải thưởng</span><span class="l-en">Award submissions</span></span><span><span class="l-vi">Kịch bản xử lý khủng hoảng</span><span class="l-en">Crisis preparedness</span></span></div></div>
+        <div><h3><span class="l-vi">Sự kiện &amp; cộng đồng</span><span class="l-en">Events &amp; community</span></h3><div class="chips">
+          <span><span class="l-vi">Sự kiện đối ngoại</span><span class="l-en">Corporate events</span></span><span><span class="l-vi">Hội chợ quốc tế</span><span class="l-en">Trade fairs</span></span><span>CSR</span><span>Livestream</span></div></div>
+        <div><h3><span class="l-vi">Thương hiệu &amp; ấn phẩm</span><span class="l-en">Brand &amp; print</span></h3><div class="chips">
+          <span>Brand Guideline</span><span><span class="l-vi">Nghiệm thu in ấn</span><span class="l-en">Print sign-off</span></span><span>POSM</span><span><span class="l-vi">Bao bì</span><span class="l-en">Packaging</span></span><span><span class="l-vi">Quản lý nhà cung cấp</span><span class="l-en">Supplier management</span></span></div></div>
+        <div><h3><span class="l-vi">Nội dung &amp; công cụ</span><span class="l-en">Content &amp; tools</span></h3><div class="chips">
+          <span><span class="l-vi">Biên tập song ngữ Anh–Việt</span><span class="l-en">EN–VI editing</span></span><span><span class="l-vi">Kịch bản video</span><span class="l-en">Video scripting</span></span><span>MS Office</span><span>Canva</span><span>AI: Claude, Gemini</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="lien-he">
+  <div class="wrap">
+    <p class="eyebrow" style="color:inherit;opacity:.7"><span class="l-vi">Liên hệ</span><span class="l-en">Contact</span></p>
+    <h2><span class="l-vi">Cùng trò chuyện nhé.</span><span class="l-en">Let's talk.</span></h2>
+    <p><span class="l-vi">Tôi đang tìm kiếm cơ hội ở vị trí Truyền thông Tập đoàn và Truyền thông Thương hiệu tại Hà Nội.</span><span class="l-en">I'm looking for Corporate Communications and Brand Communications roles in Hanoi.</span></p>
+    <div class="cards">
+      <div class="cc"><div><small>Email</small><span id="v-mail">dthm8833@gmail.com</span></div><button type="button" id="copy-mail" data-copy="v-mail"><span class="l-vi">Sao chép</span><span class="l-en">Copy</span></button></div>
+      <div class="cc"><div><small><span class="l-vi">Điện thoại</span><span class="l-en">Phone</span></small><span id="v-phone">+84 392 175 459</span></div><button type="button" id="copy-phone" data-copy="v-phone"><span class="l-vi">Sao chép</span><span class="l-en">Copy</span></button></div>
+    </div>
+    <a class="btn" href="assets/CV-Duong-Thi-Ha-My.pdf" target="_blank" rel="noopener"><span class="l-vi">Mở CV đầy đủ (PDF)</span><span class="l-en">Open full CV (PDF)</span></a>
+  </div>
+</section>
+<footer class="foot"><div class="wrap"><span>© 2026 Dương Thị Hà My</span><span><span class="l-vi">Hà Nội, Việt Nam</span><span class="l-en">Hanoi, Vietnam</span></span></div></footer>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Xem ảnh">
+  <div class="lb-stage"><img id="lb-img" alt=""></div>
+  <div class="lb-bar">
+    <button type="button" id="lb-prev" aria-label="Ảnh trước">←</button>
+    <div class="lb-cap" id="lb-cap"></div>
+    <button type="button" id="lb-next" aria-label="Ảnh sau">→</button>
+    <button type="button" id="lb-close"><span class="l-vi">Đóng</span><span class="l-en">Close</span></button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  function setLang(l){
+    root.dataset.lang=l; root.setAttribute('lang',l);
+    document.querySelectorAll('[data-set-lang]').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.setLang===l))});
+    try{localStorage.setItem('hm-lang',l)}catch(e){}
+  }
+  var saved='vi'; try{saved=localStorage.getItem('hm-lang')||'vi'}catch(e){}
+  setLang(saved);
+  document.querySelectorAll('[data-set-lang]').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.setLang)})});
+
+  document.querySelectorAll('[data-copy]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var el=document.getElementById(b.dataset.copy), txt=el.textContent.trim();
+      function done(){var o=b.innerHTML;b.textContent=root.dataset.lang==='en'?'Copied':'Đã chép';setTimeout(function(){b.innerHTML=o},1600)}
+      function sel(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r)}
+      if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done,sel)}else{sel()}
+    });
+  });
+
+  var imgs=Array.prototype.slice.call(document.querySelectorAll('img[data-lb]'));
+  var lb=document.getElementById('lb'),li=document.getElementById('lb-img'),lc=document.getElementById('lb-cap'),cur=0,last=null;
+  function show(i){
+    cur=(i+imgs.length)%imgs.length; var im=imgs[cur];
+    li.src=im.currentSrc||im.src; li.alt=im.alt;
+    var cap=im.parentElement.querySelector('figcaption'); lc.innerHTML=cap?cap.innerHTML:'';
+  }
+  function open(i){last=document.activeElement;show(i);lb.hidden=false;document.body.style.overflow='hidden';document.getElementById('lb-close').focus()}
+  function close(){lb.hidden=true;document.body.style.overflow='';if(last)last.focus()}
+  imgs.forEach(function(im,i){im.tabIndex=0;im.addEventListener('click',function(){open(i)});im.addEventListener('keydown',function(e){if(e.key==='Enter'){open(i)}})});
+  document.getElementById('lb-close').addEventListener('click',close);
+  document.getElementById('lb-prev').addEventListener('click',function(){show(cur-1)});
+  document.getElementById('lb-next').addEventListener('click',function(){show(cur+1)});
+  lb.addEventListener('click',function(e){if(e.target===lb||e.target.classList.contains('lb-stage'))close()});
+  document.addEventListener('keydown',function(e){if(lb.hidden)return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(cur-1);if(e.key==='ArrowRight')show(cur+1)});
+})();
+</script>
