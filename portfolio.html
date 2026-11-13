@@ -5,18 +5,19 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,500&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Be+Vietnam+Pro:wght@400;500;600&display=swap">
 <style>
-/* Theme: "editorial" token pack from HyperFrames (themes/editorial.css), adapted for web: paper bg, ink text, deep teal brand, walnut second accent */
+/* Palette (user-supplied): Cherry #D20001 · Soft Pink #FEC6E9 · Cobalt #0212EE · Sand #F3F3E9. Ink is a near-black pulled toward cobalt. */
 /* Layout: left-aligned editorial column; hero photo cut in a tumbler silhouette; each case = facts column + photo mosaic, alternating sides */
 :root{
-  --bg:#E9E1D2;        /* paper */
-  --surface:#F8F1E5;
-  --ink:#202725;
-  --muted:#5F6862;
-  --line:#C9BFAD;
-  --accent:#246B63;    /* brand teal */
-  --accent-2:#8A6549;  /* walnut */
-  --accent-soft:#DCE3D6;
-  --scrim:rgba(20,24,22,.93);
+  --bg:#F3F3E9;        /* sand */
+  --surface:#FBFBF6;
+  --ink:#0D0F2E;       /* cobalt-black */
+  --muted:#55576F;
+  --line:#DCDCCF;
+  --accent:#0212EE;    /* cobalt */
+  --accent-2:#D20001;  /* cherry */
+  --accent-soft:#FEC6E9; /* soft pink */
+  --on-accent:#F3F3E9;
+  --scrim:rgba(8,9,30,.93);
   --f-display:"Playfair Display",Georgia,"Times New Roman",serif;
   --f-body:"Lora",Georgia,"Times New Roman",serif;
   --f-ui:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif;
@@ -25,8 +26,8 @@
   --wrap:1180px;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#1B1F1D;--surface:#242A27;--ink:#ECE4D6;--muted:#A3AAA4;--line:#3A423E;--accent:#7DBFB4;--accent-2:#C9A07F;--accent-soft:#25352F;--scrim:rgba(8,10,9,.95);color-scheme:dark}}
-:root[data-theme="dark"]{--bg:#1B1F1D;--surface:#242A27;--ink:#ECE4D6;--muted:#A3AAA4;--line:#3A423E;--accent:#7DBFB4;--accent-2:#C9A07F;--accent-soft:#25352F;--scrim:rgba(8,10,9,.95);color-scheme:dark}
+  --bg:#0B0D26;--surface:#14173A;--ink:#F3F3E9;--muted:#A7A9C6;--line:#262A5C;--accent:#8E97FF;--accent-2:#FF6E6A;--accent-soft:#3B1D3F;--on-accent:#0B0D26;--scrim:rgba(4,5,18,.95);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0B0D26;--surface:#14173A;--ink:#F3F3E9;--muted:#A7A9C6;--line:#262A5C;--accent:#8E97FF;--accent-2:#FF6E6A;--accent-soft:#3B1D3F;--on-accent:#0B0D26;--scrim:rgba(4,5,18,.95);color-scheme:dark}
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -64,8 +65,9 @@ p{margin:0}
 .hero{padding-block:clamp(2.5rem,6vw,5rem) clamp(3rem,7vw,6rem)}
 .hero-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
 .hero-text{min-width:0;display:grid;gap:1.4rem}
-.hero h1{font-size:var(--s4);font-weight:700;letter-spacing:-.015em;line-height:1.02}
-.hero h1 .thin{display:block;font-weight:400;font-style:italic;color:var(--accent-2)}
+.hero h1{font-size:clamp(2rem,4.6vw,3.7rem);font-weight:700;letter-spacing:-.01em;line-height:1.05;white-space:nowrap;color:var(--accent)}
+.hero-meta{display:flex;flex-wrap:wrap;gap:.35rem 1.2rem;font-family:var(--f-ui);font-size:.92rem;color:var(--muted);margin-top:-.4rem}
+.hero-meta b{font-weight:600;color:var(--ink)}
 .lede{font-size:var(--s1);max-width:36em;color:var(--ink)}
 .hero-cta{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:.4rem}
 .tumbler{position:relative;margin:0}
@@ -115,7 +117,7 @@ section{scroll-margin-top:70px}
 @media (min-width:900px){.case-text{position:sticky;top:calc(80px + env(safe-area-inset-top,0px))}}
 .tags{display:flex;flex-wrap:wrap;gap:.4rem}
 .tag{font-size:.75rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:.25em .7em;border:1px solid var(--line);border-radius:4px;color:var(--muted);background:var(--surface)}
-.tag.yr{color:var(--accent);border-color:color-mix(in srgb,var(--accent) 35%,transparent);background:var(--accent-soft)}
+.tag.yr{color:var(--accent-2);border-color:transparent;background:var(--accent-soft)}
 .case h3{font-size:var(--s3)}
 .case-lede{font-size:var(--s1)}
 .dl{display:grid;gap:1rem;margin:0}
@@ -174,19 +176,22 @@ section{scroll-margin-top:70px}
 .list-h{font-size:1.35rem;margin-bottom:.4rem}
 
 /* contact */
-.contact{background:var(--ink);color:var(--bg)}
+.contact{background:var(--accent);color:var(--on-accent)}
 .contact .wrap{padding-block:clamp(3.5rem,8vw,6rem);display:grid;gap:2rem}
 .contact h2{font-size:var(--s4);font-weight:500;font-style:italic;letter-spacing:-.01em}
 .contact p{max-width:34em;opacity:.8}
 .cards{display:flex;flex-wrap:wrap;gap:12px}
-.cc{display:flex;align-items:center;gap:.9rem;padding:.8rem .9rem .8rem 1.1rem;border:1px solid color-mix(in srgb,var(--bg) 25%,transparent);border-radius:8px;min-width:0}
+.cc{display:flex;align-items:center;gap:.9rem;padding:.8rem .9rem .8rem 1.1rem;border:1px solid color-mix(in srgb,var(--on-accent) 25%,transparent);border-radius:8px;min-width:0}
 .cc small{display:block;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;opacity:.65}
 .cc div > span{font-weight:600;user-select:all;overflow-wrap:anywhere}
-.cc button{font:inherit;font-size:.8rem;font-weight:600;border:0;border-radius:999px;padding:.4em .9em;background:var(--bg);color:var(--ink);cursor:pointer;flex-shrink:0}
-.contact .btn{border-color:var(--bg);color:var(--bg);justify-self:start}
-.contact .btn:hover{background:var(--bg);color:var(--ink)}
-footer.foot{background:var(--ink);color:var(--bg);opacity:1}
-footer.foot .wrap{padding-block:1.2rem;border-top:1px solid color-mix(in srgb,var(--bg) 18%,transparent);font-size:.8rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.cc button{font:inherit;font-size:.8rem;font-weight:600;border:0;border-radius:999px;padding:.4em .9em;background:var(--on-accent);color:var(--accent);cursor:pointer;flex-shrink:0}
+.cc-link{text-decoration:none;color:inherit;transition:background .2s}
+.cc-link:hover{background:color-mix(in srgb,var(--on-accent) 12%,transparent)}
+.cc-link .cc-go{font-family:var(--f-ui);font-size:1.1rem;padding-inline:.4rem}
+.contact .btn{border-color:var(--on-accent);color:var(--on-accent);justify-self:start}
+.contact .btn:hover{background:var(--on-accent);color:var(--accent)}
+footer.foot{background:var(--accent);color:var(--on-accent);opacity:1}
+footer.foot .wrap{padding-block:1.2rem;border-top:1px solid color-mix(in srgb,var(--on-accent) 18%,transparent);font-size:.8rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 footer.foot span{opacity:.6}
 
 /* lightbox */
@@ -206,8 +211,8 @@ footer.foot span{opacity:.6}
     <div class="nav-links">
       <a href="#gioi-thieu"><span class="l-vi">Giới thiệu</span><span class="l-en">About</span></a>
       <a href="#du-an"><span class="l-vi">Dự án</span><span class="l-en">Work</span></a>
-      <a href="#ca-nhan"><span class="l-vi">Dự án cá nhân</span><span class="l-en">Independent</span></a>
       <a href="#kinh-nghiem"><span class="l-vi">Kinh nghiệm</span><span class="l-en">Experience</span></a>
+      <a href="#ca-nhan"><span class="l-vi">Dự án cá nhân</span><span class="l-en">Independent</span></a>
       <a href="#lien-he"><span class="l-vi">Liên hệ</span><span class="l-en">Contact</span></a>
     </div>
     <div class="lang" role="group" aria-label="Ngôn ngữ / Language">
@@ -222,7 +227,8 @@ footer.foot span{opacity:.6}
     <div class="hero-grid">
       <div class="hero-text">
         <p class="eyebrow"><span class="l-vi">Truyền thông Doanh nghiệp &amp; Thương hiệu</span><span class="l-en">Corporate &amp; Brand Communications</span></p>
-        <h1><span class="thin">Dương Thị</span>Hà My</h1>
+        <h1>Dương Thị Hà My</h1>
+        <p class="hero-meta"><span><span class="l-vi">Ngày sinh</span><span class="l-en">Born</span> <b>08/03/2001</b></span><span><b>Kim Giang, Thanh Liệt, <span class="l-vi">Hà Nội</span><span class="l-en">Hanoi</span></b></span></p>
         <p class="lede">
           <span class="l-vi">Tôi kể câu chuyện doanh nghiệp qua sự kiện, báo chí, hoạt động cộng đồng và từng ấn phẩm, để thương hiệu được nhìn nhận đúng và được tin tưởng lâu dài.</span>
           <span class="l-en">I tell a company's story through events, media relations, community programmes and every printed piece, so the brand is understood clearly and trusted for the long run.</span>
@@ -255,8 +261,8 @@ footer.foot span{opacity:.6}
         <span class="l-en">I hold a BA in Marketing Communications and an MA in Communication Management from the Academy of Journalism and Communication. Over nearly four years I have worked agency-side and in-house, from writing video scripts to running brand communications for a 30-year-old Vietnamese glassware manufacturer.</span>
       </p>
       <p>
-        <span class="l-vi">Tại Thủy tinh Pha lê Việt Tiệp, tôi làm việc ở giao điểm giữa thương hiệu và uy tín doanh nghiệp: nội dung song ngữ cho kênh nội bộ và đối ngoại, sự kiện và hội chợ, hồ sơ giải thưởng, hoạt động CSR, giám sát Brand Guideline và nghiệm thu ấn phẩm với nhà cung cấp.</span>
-        <span class="l-en">At Viet Tiep Glass &amp; Crystal I worked where brand meets corporate reputation: bilingual content for internal and external channels, events and trade fairs, award submissions, CSR programmes, brand guideline compliance and print sign-off with suppliers.</span>
+        <span class="l-vi">Tại Thủy tinh Pha lê Việt Tiệp, tôi phụ trách các công việc về thương hiệu và uy tín doanh nghiệp: nội dung song ngữ cho kênh nội bộ và đối ngoại, sự kiện và hội chợ, hồ sơ giải thưởng, hoạt động CSR, giám sát Brand Guideline và nghiệm thu ấn phẩm với nhà cung cấp.</span>
+        <span class="l-en">At Viet Tiep Glass &amp; Crystal I was responsible for brand and corporate reputation work: bilingual content for internal and external channels, events and trade fairs, award submissions, CSR programmes, brand guideline compliance and print sign-off with suppliers.</span>
       </p>
       <p>
         <span class="l-vi">Mục tiêu tiếp theo của tôi là vị trí Truyền thông Tập đoàn, nơi tôi có thể bảo vệ và nâng tầm vị thế thương hiệu doanh nghiệp một cách bền vững.</span>
@@ -459,6 +465,34 @@ footer.foot span{opacity:.6}
   </div>
 </section>
 
+<section class="sec" id="kinh-nghiem">
+  <div class="wrap two">
+    <div>
+      <p class="eyebrow"><span class="l-vi">Kinh nghiệm</span><span class="l-en">Experience</span></p>
+      <h2 class="list-h" style="margin-top:.6rem"><span class="l-vi">Hành trình làm nghề</span><span class="l-en">Career path</span></h2>
+      <ol class="tl">
+        <li><time>2024–2026</time><div><b><span class="l-vi">Công ty TNHH Thủy tinh Pha lê Việt Tiệp</span><span class="l-en">Viet Tiep Glass &amp; Crystal Co., Ltd.</span></b><i><span class="l-vi">Chuyên viên Truyền thông &amp; Thương hiệu</span><span class="l-en">Brand &amp; Communications Specialist</span></i><p><span class="l-vi">Nội dung song ngữ, sự kiện, hội chợ quốc tế, CSR, giải thưởng, quản lý nhà cung cấp in ấn, Brand Guideline.</span><span class="l-en">Bilingual content, events, international fairs, CSR, awards, print-supplier management, brand guideline.</span></p></div></li>
+        <li><time>2022–2023</time><div><b>Salmon Marketing Agency</b><i>Creative Content Creator</i><p><span class="l-vi">Viết kịch bản, đạo diễn và biên tập video quảng cáo, đạt 2,1 triệu lượt xem tự nhiên; phát triển kênh social và social listening cho khách hàng.</span><span class="l-en">Wrote, directed and edited ad videos that reached 2.1 million organic views; grew client social channels and ran social listening.</span></p></div></li>
+        <li><time>2021</time><div><b>À Ơi Việt Nam</b><i>Marketing Executive</i><p><span class="l-vi">Nghiên cứu thị trường, hỗ trợ kế hoạch ra mắt dòng quà tặng thực phẩm mới.</span><span class="l-en">Market research and launch planning for a new food-gift range.</span></p></div></li>
+      </ol>
+    </div>
+    <div>
+      <p class="eyebrow"><span class="l-vi">Năng lực</span><span class="l-en">Capabilities</span></p>
+      <h2 class="list-h" style="margin-top:.6rem"><span class="l-vi">Tôi mang đến</span><span class="l-en">What I bring</span></h2>
+      <div class="sk">
+        <div><h3><span class="l-vi">Truyền thông doanh nghiệp</span><span class="l-en">Corporate communications</span></h3><div class="chips">
+          <span><span class="l-vi">Truyền thông nội bộ &amp; đối ngoại</span><span class="l-en">Internal &amp; external comms</span></span><span><span class="l-vi">Quan hệ báo chí</span><span class="l-en">Media relations</span></span><span><span class="l-vi">Hồ sơ giải thưởng</span><span class="l-en">Award submissions</span></span><span><span class="l-vi">Kịch bản xử lý khủng hoảng</span><span class="l-en">Crisis preparedness</span></span></div></div>
+        <div><h3><span class="l-vi">Sự kiện &amp; cộng đồng</span><span class="l-en">Events &amp; community</span></h3><div class="chips">
+          <span><span class="l-vi">Sự kiện đối ngoại</span><span class="l-en">Corporate events</span></span><span><span class="l-vi">Hội chợ quốc tế</span><span class="l-en">Trade fairs</span></span><span>CSR</span><span>Livestream</span></div></div>
+        <div><h3><span class="l-vi">Thương hiệu &amp; ấn phẩm</span><span class="l-en">Brand &amp; print</span></h3><div class="chips">
+          <span>Brand Guideline</span><span><span class="l-vi">Nghiệm thu in ấn</span><span class="l-en">Print sign-off</span></span><span>POSM</span><span><span class="l-vi">Bao bì</span><span class="l-en">Packaging</span></span><span><span class="l-vi">Quản lý nhà cung cấp</span><span class="l-en">Supplier management</span></span></div></div>
+        <div><h3><span class="l-vi">Nội dung &amp; công cụ</span><span class="l-en">Content &amp; tools</span></h3><div class="chips">
+          <span><span class="l-vi">Biên tập song ngữ Anh–Việt</span><span class="l-en">EN–VI editing</span></span><span><span class="l-vi">Kịch bản video</span><span class="l-en">Video scripting</span></span><span>MS Office</span><span>Canva</span><span>AI: Claude, Gemini</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="sec" id="ca-nhan">
   <div class="wrap">
     <div class="sec-head">
@@ -515,35 +549,6 @@ footer.foot span{opacity:.6}
   </div>
 </section>
 
-<section class="sec" id="kinh-nghiem">
-  <div class="wrap two">
-    <div>
-      <p class="eyebrow"><span class="l-vi">Kinh nghiệm</span><span class="l-en">Experience</span></p>
-      <h2 class="list-h" style="margin-top:.6rem"><span class="l-vi">Hành trình làm nghề</span><span class="l-en">Career path</span></h2>
-      <ol class="tl">
-        <li><time>2026</time><div><b><span class="l-vi">Dự án cá nhân F&amp;B</span><span class="l-en">Independent F&amp;B projects</span></b><i>Leader</i><p><span class="l-vi">Dẫn dắt truyền thông cho 5 thương hiệu trà và cà phê.</span><span class="l-en">Led communications for five tea and coffee brands.</span></p></div></li>
-        <li><time>2024–2026</time><div><b><span class="l-vi">Công ty TNHH Thủy tinh Pha lê Việt Tiệp</span><span class="l-en">Viet Tiep Glass &amp; Crystal Co., Ltd.</span></b><i><span class="l-vi">Chuyên viên Truyền thông &amp; Thương hiệu</span><span class="l-en">Brand &amp; Communications Specialist</span></i><p><span class="l-vi">Nội dung song ngữ, sự kiện, hội chợ quốc tế, CSR, giải thưởng, quản lý nhà cung cấp in ấn, Brand Guideline.</span><span class="l-en">Bilingual content, events, international fairs, CSR, awards, print-supplier management, brand guideline.</span></p></div></li>
-        <li><time>2022–2023</time><div><b>Salmon Marketing Agency</b><i>Creative Content Creator</i><p><span class="l-vi">Viết kịch bản, đạo diễn và biên tập video quảng cáo, đạt 2,1 triệu lượt xem tự nhiên; phát triển kênh social và social listening cho khách hàng.</span><span class="l-en">Wrote, directed and edited ad videos that reached 2.1 million organic views; grew client social channels and ran social listening.</span></p></div></li>
-        <li><time>2021</time><div><b>À Ơi Việt Nam</b><i>Marketing Executive</i><p><span class="l-vi">Nghiên cứu thị trường, hỗ trợ kế hoạch ra mắt dòng quà tặng thực phẩm mới.</span><span class="l-en">Market research and launch planning for a new food-gift range.</span></p></div></li>
-      </ol>
-    </div>
-    <div>
-      <p class="eyebrow"><span class="l-vi">Năng lực</span><span class="l-en">Capabilities</span></p>
-      <h2 class="list-h" style="margin-top:.6rem"><span class="l-vi">Tôi mang đến</span><span class="l-en">What I bring</span></h2>
-      <div class="sk">
-        <div><h3><span class="l-vi">Truyền thông doanh nghiệp</span><span class="l-en">Corporate communications</span></h3><div class="chips">
-          <span><span class="l-vi">Truyền thông nội bộ &amp; đối ngoại</span><span class="l-en">Internal &amp; external comms</span></span><span><span class="l-vi">Quan hệ báo chí</span><span class="l-en">Media relations</span></span><span><span class="l-vi">Hồ sơ giải thưởng</span><span class="l-en">Award submissions</span></span><span><span class="l-vi">Kịch bản xử lý khủng hoảng</span><span class="l-en">Crisis preparedness</span></span></div></div>
-        <div><h3><span class="l-vi">Sự kiện &amp; cộng đồng</span><span class="l-en">Events &amp; community</span></h3><div class="chips">
-          <span><span class="l-vi">Sự kiện đối ngoại</span><span class="l-en">Corporate events</span></span><span><span class="l-vi">Hội chợ quốc tế</span><span class="l-en">Trade fairs</span></span><span>CSR</span><span>Livestream</span></div></div>
-        <div><h3><span class="l-vi">Thương hiệu &amp; ấn phẩm</span><span class="l-en">Brand &amp; print</span></h3><div class="chips">
-          <span>Brand Guideline</span><span><span class="l-vi">Nghiệm thu in ấn</span><span class="l-en">Print sign-off</span></span><span>POSM</span><span><span class="l-vi">Bao bì</span><span class="l-en">Packaging</span></span><span><span class="l-vi">Quản lý nhà cung cấp</span><span class="l-en">Supplier management</span></span></div></div>
-        <div><h3><span class="l-vi">Nội dung &amp; công cụ</span><span class="l-en">Content &amp; tools</span></h3><div class="chips">
-          <span><span class="l-vi">Biên tập song ngữ Anh–Việt</span><span class="l-en">EN–VI editing</span></span><span><span class="l-vi">Kịch bản video</span><span class="l-en">Video scripting</span></span><span>MS Office</span><span>Canva</span><span>AI: Claude, Gemini</span></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section class="contact" id="lien-he">
   <div class="wrap">
     <p class="eyebrow" style="color:inherit;opacity:.7"><span class="l-vi">Liên hệ</span><span class="l-en">Contact</span></p>
@@ -552,6 +557,7 @@ footer.foot span{opacity:.6}
     <div class="cards">
       <div class="cc"><div><small>Email</small><span id="v-mail">dthm8833@gmail.com</span></div><button type="button" id="copy-mail" data-copy="v-mail"><span class="l-vi">Sao chép</span><span class="l-en">Copy</span></button></div>
       <div class="cc"><div><small><span class="l-vi">Điện thoại</span><span class="l-en">Phone</span></small><span id="v-phone">+84 392 175 459</span></div><button type="button" id="copy-phone" data-copy="v-phone"><span class="l-vi">Sao chép</span><span class="l-en">Copy</span></button></div>
+      <a class="cc cc-link" href="https://www.linkedin.com/in/my-duong-cr3ative" target="_blank" rel="noopener"><div><small>LinkedIn</small><span>linkedin.com/in/my-duong-cr3ative</span></div><b class="cc-go" aria-hidden="true">↗</b></a>
     </div>
     <a class="btn" href="assets/CV-Duong-Thi-Ha-My.pdf" target="_blank" rel="noopener"><span class="l-vi">Mở CV đầy đủ (PDF)</span><span class="l-en">Open full CV (PDF)</span></a>
   </div>
